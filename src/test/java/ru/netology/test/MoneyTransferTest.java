@@ -57,7 +57,7 @@ public class MoneyTransferTest {
         assertEquals(balanceAfterTransferSecondCard, balanceOfSecondCardAfter);
     }
 
-    ///@Test
+    @Test
     void shouldNotTransferMoreThanRestOfBalance() {
         int amount = 15000;
         val loginPage = open("http://localhost:9999", LoginPage.class);
