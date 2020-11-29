@@ -1,8 +1,10 @@
 package ru.netology.page;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import ru.netology.data.DataHelper;
 
+import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class TransferPage {
@@ -14,5 +16,9 @@ public class TransferPage {
         amountField.setValue(String.valueOf(amountToTransfer));
         fromField.setValue(CardInfo.getCardNumber());
         transferButton.click();
+    }
+
+    public void getNotification () {
+        $(withText("На балансе недостаточно средств")).shouldBe(Condition.visible);
     }
 }
